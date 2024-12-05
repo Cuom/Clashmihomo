@@ -5,9 +5,8 @@
 
 p: &p {type: http, interval: 86400, health-check: {enable: true, url: http://www.gstatic.com/generate_204, interval: 1800, timeout: 5000}}
 proxy-providers:
-  Subscribe: [url: http://your-service-provider, <<: *p]
+  Subscribe: [url: https://gist.githubusercontent.com/Cuom/4145113561a6993fbe5cfd9c6db2a1da/raw/test1198, <<: *p]
   # 在此将 "http://your-service-provider" 替换为你的机场订阅，推荐使用 base64 或者 node list
-
 mixed-port: 7893
 tcp-concurrent: true
 allow-lan: true
@@ -61,26 +60,26 @@ load-balance: &load-balance {type: load-balance, strategy: consistent-hashing, u
 c: &c {type: http, behavior: classical, format: text, interval: 86400}
 
 proxy-groups:
-  - {name: Proxy, <<: *select, include-all: true, icon: https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/applesafari.png}
+  - {name: 手动选择, <<: *select, include-all: true, icon: https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/applesafari.png}
 
 rules:
 
-  - GEOSITE,openai,Proxy
-  - GEOSITE,category-games,Proxy
-  - GEOSITE,github,Proxy
-  - GEOSITE,telegram,Proxy
-  - GEOSITE,twitter,Proxy
-  - GEOSITE,microsoft,Proxy
-  - GEOSITE,youtube,Proxy
-  - GEOSITE,google,Proxy
+  - GEOSITE,openai,手动选择
+  - GEOSITE,category-games,手动选择
+  - GEOSITE,github,手动选择
+  - GEOSITE,telegram,手动选择
+  - GEOSITE,twitter,手动选择
+  - GEOSITE,microsoft,手动选择
+  - GEOSITE,youtube,手动选择
+  - GEOSITE,google,手动选择
   - GEOSITE,private,DIRECT
   - GEOSITE,cn,DIRECT
-  - GEOSITE,geolocation-!cn,Proxy
+  - GEOSITE,geolocation-!cn,手动选择
 
-  - GEOIP,telegram,Proxy
-  - GEOIP,twitter,Proxy
-  - GEOIP,google,Proxy
+  - GEOIP,telegram,手动选择
+  - GEOIP,twitter,手动选择
+  - GEOIP,google,手动选择
   - GEOIP,private,DIRECT
   - GEOIP,cn,DIRECT
 
-  - MATCH,Proxy
+  - MATCH,手动选择
